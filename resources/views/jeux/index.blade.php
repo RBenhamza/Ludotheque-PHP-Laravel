@@ -2,6 +2,9 @@
 <head>
     <title>Liste des jeux</title>
 </head>
+<div>
+    <a href="{{route("jeux.create")}}" class="button">Ajouter un jeu</a>
+</div>
 <body>
 <h2>La liste des jeux</h2>
     <table border="1px">
