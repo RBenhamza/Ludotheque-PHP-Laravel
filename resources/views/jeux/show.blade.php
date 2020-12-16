@@ -1,3 +1,4 @@
+<a href="{{route("jeux.index")}}">Retour</a>
 <div>
     <p><strong>Titre  : </strong>{{$jeu->nom}}</p>
     <p><strong>Description : </strong>{{$jeu->nom}}</p>
