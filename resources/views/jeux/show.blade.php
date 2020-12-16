@@ -47,4 +47,36 @@
         </div>
     </div>
 </div>
+
+</br>
+
+
+<div class="bottom-section">
+    <div class="comments-container">
+        <h3>Commentaires</h3>
+        <hr/>
+
+        <div class="comment-wrapper">
+            @if(!empty($commentaire))
+                @foreach($commentaires as $commentaire)
+                    <tr>
+                        <td>{{$commentaire->description}}</td>
+                        <td> {{$commentaire->date_com}}</td>
+                        <td> {{$commentaire->note}}</td>
+                        <td> {{$commentaire->jeu_id}}</td>
+                        <td> {{$commentaire->user_id}}</td>
+                    </tr>
+                @endforeach
+            @else
+                <p>Aucuns commentaires.</p>
+            @endif
+        </div>
+    </div>
+
+    <div>
+        <a href="{{route('commentaire.create',$jeu->id)}}">Créer un commentaire pour {{$jeu->nom}}</a>
+    </div>
+
+
+
 @endsection

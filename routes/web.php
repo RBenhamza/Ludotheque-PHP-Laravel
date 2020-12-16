@@ -26,6 +26,8 @@ Route::get('/enonce', function () {
     return view('enonce.index');
 });
 
+Route::resource('commentaire', 'CommentaireController');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

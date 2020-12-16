@@ -9,6 +9,8 @@ class Commentaire extends Model
 {
     use HasFactory;
 
+    protected $table = 'commentaires';
+
     public $timestamps = false;
 
     protected $fillable = ['commentaire', 'date_com', 'note'];
