@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/accueil', function () {
+    return view('accueil.index');
+});
+
 Route::get('/enonce', function () {
     return view('enonce.index');
 });
