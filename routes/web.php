@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\View\Components\jeux;
 use App\Models\Jeu;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,8 @@ Route::get('jeux.tri', function () {
     $jeux = Jeu::orderBy('nom', 'asc')->get();
     return view('jeux.index', ['jeux' => $jeux]);
 })->name('jeux.tri');
+
+Route::get('user/{id}/profile', function ($id) {
+    $user=User::find($id);
+    return view('jeux.profil')->with('user',$user);
+})->name('profil');

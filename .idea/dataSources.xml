@@ -13,5 +13,11 @@
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mariadb://localhost:3306/ludotheque</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="ludo@localhost" uuid="44f2c5e3-3d11-406f-93fd-54ed8c26c727">
+      <driver-ref>mariadb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://localhost:3306/ludo</jdbc-url>
+    </data-source>
   </component>
 </project>
