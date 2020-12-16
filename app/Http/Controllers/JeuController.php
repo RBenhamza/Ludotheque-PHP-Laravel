@@ -145,4 +145,10 @@ class JeuController extends Controller
             $res[] = Jeu::find($id);
         return view('welcome', ['res' => $res]);
     }
+
+    public function tri(Request $request){
+//        $jeux = Jeu::all()->sortBy($elt);
+        $jeux = Jeu::orderBy($request->tri, 'asc')->get();
+        return view('jeux.index', ['jeux' => $jeux]);
+    }
 }

@@ -34,19 +34,17 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::resource('jeux', 'JeuController');
 
-Route::get('jeux.tri', function () {
-    $jeux = Jeu::orderBy('nom', 'asc')->get();
-    return view('jeux.index', ['jeux' => $jeux]);
-})->name('jeux.tri');
+//Route::get('jeux.tri', function () {
+//    $jeux = Jeu::orderBy('nom', 'asc')->get();
+//    return view('jeux.index', ['jeux' => $jeux]);
+//})->name('jeux.tri');
+
+Route::get('jeu/tri', [\App\Http\Controllers\JeuController::class, 'tri'])->name('jeux.tri');
 
 Route::get('/user/{id}/profil', function ($id) {
     $user = User::find($id);
     return view('jeux.profil')->with('user', $user);
 })->name('profil');
-
-
-
-
 
 
 

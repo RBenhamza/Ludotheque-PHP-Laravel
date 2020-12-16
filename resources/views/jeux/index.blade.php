@@ -10,8 +10,19 @@
 </head>
 <div>
     <a href="{{route("jeux.create")}}" class="button">Ajouter un jeu</a>
-    <a href="{{route("jeux.tri")}}" class="button">Trier les jeux a->z </a>
+{{--    <a href="{{route("jeux.tri")}}" class="button">Trier les jeux a->z </a>--}}
+
+    <form action="{{route('jeux.tri')}}" method="GET">
+        <label for="selectTri"> <select id="selectTri" name="tri" onchange="this.form.submit()">
+            <option value="#" selected>--Trier par--</option>
+            <option value="nom">nom</option>
+            <option value="nombre_joueurs">nombre de joueurs</option>
+            <option value="duree">durée</option>
+        </select></label>
+    </form>
 </div>
+
+
 <body>
 <h2>La liste des jeux</h2>
     <table border="1px">
