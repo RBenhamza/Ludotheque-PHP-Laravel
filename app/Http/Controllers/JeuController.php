@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Editeur;
+use App\Models\Jeu;
+use App\Models\Theme;
+use Faker\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,7 +14,7 @@ class JeuController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
@@ -79,7 +83,7 @@ class JeuController extends Controller
         $jeu->save();
 
         // redirection vers la page qui affiche la liste des tâches
-        return redirect('/jeu.index');
+        return redirect('/jeux.index');
 
     }
 

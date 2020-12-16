@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\JeuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +25,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::resource('jeux', 'App\Http\Controllers\JeuController');
+Route::resource('jeux', 'JeuController');

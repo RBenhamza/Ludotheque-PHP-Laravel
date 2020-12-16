@@ -1,5 +1,5 @@
 <title>Creation d'un jeu</title>
-<form action="{{route('jeu.store')}}" method="POST">
+<form action="{{route('jeux.store')}}" method="POST">
     {!! csrf_field() !!}
 
     <h1>Creation de Smartphone</h1>
@@ -47,7 +47,7 @@
     </div>
 
     <div class="btn-block">
-        <a href="{{route("jeu.index")}}" class="btn-href">Retour</a>
+        <a href="{{route("jeux.index")}}" class="btn-href">Retour</a>
         <button type="submit" href="/">Valider</button>
     </div>
 </form>
