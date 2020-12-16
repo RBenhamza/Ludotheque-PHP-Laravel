@@ -27,16 +27,17 @@
 <h2>La liste des jeux</h2>
     <table border="1px">
         <tr>
-            <td>nom</td><td>description</td><td>url_media</td><td>theme</td><td>durée</td><td>nombre de joueurs</td><td></td>
+            <td>Nom</td><td>Description</td><td>Photo</td><td>Theme</td><td>Durée</td><td>Nombre de joueurs</td><td>Editeur</td><td></td>
         </tr>
         @foreach($jeux as $jeu)
             <tr>
                 <td>{{$jeu->nom}}</td>
                 <td> {{$jeu->description}}</td>
                 <td><img src="{{$jeu->url_media}}"></td>
-                <td>{{$jeu->theme_id}}</td>
+                <td>{{$jeu->theme->nom}}</td>
                 <td>{{$jeu->duree}}</td>
                 <td>{{$jeu->nombre_joueurs}}</td>
+                <td>{{$jeu->editeur->nom}}</td>
                 <td><a href = {{route('jeux.show',$jeu->id)}}>Plus d'infos</a></td>
             </tr>
         @endforeach

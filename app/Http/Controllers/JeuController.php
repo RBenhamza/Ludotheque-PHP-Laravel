@@ -135,6 +135,9 @@ class JeuController extends Controller
     {
         //
     }
+    public function random(){
+
+    }
 
     public function elemrdm(){
         $jeux = Jeu::all()->pluck('id');

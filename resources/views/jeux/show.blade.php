@@ -120,7 +120,7 @@
     </div>
 
     <div>
-        <a href="{{route('commentaire.create',$jeu->id)}}">Créer un commentaire pour {{$jeu->nom}}</a>
+        <a href="{{route('commentaire.create',[$jeu->id])}}">Créer un commentaire pour {{$jeu->nom}}</a>
     </div>
 
 

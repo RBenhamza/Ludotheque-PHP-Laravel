@@ -9,6 +9,7 @@
         font-family: "Quicksand", sans-serif;
         font-size: 62.5%;
         font-size: 10px;
+        background: #2d3a3a;
     }
     /*-- Inspiration taken from abdo steif -->
     /* --> https://codepen.io/abdosteif/pen/bRoyMb?editors=1100*/
@@ -63,7 +64,7 @@
 
     .nav div.main_list ul li a {
         text-decoration: none;
-        color: grey;
+        color: black;
         line-height: 65px;
         font-size: 2.4rem;
     }
@@ -90,8 +91,10 @@
         padding-bottom: 20px;
         -webkit-transition: all 0.4s ease;
         transition: all 0.4s ease;
+        background: #248232;
 
     }
+
 
 
     /* Animation */
@@ -158,23 +161,37 @@
         padding: 0;
         background-color: #111;
     }
+    .logo{
+        padding-bottom: 15px;
+    }
+    .color{
+        background: #2d3a3a;
+    }
 </style>
 
 
 <nav class="nav">
     <div class="container">
-        <div class="logo">
-{{--            <a><img src="./images/logo.png"></a>--}}
+        <div class="logo"><a><img src="./images/Logopetit.png"></a>
         </div>
         <div id="mainListDiv" class="main_list">
             <ul class="navlinks">
                 <li><a href="/"> Accueil </a></li>
                 <li><a href="{{route("jeux.index")}}"> Liste des jeux</a></li>
                 <li><a href="#">Jeux</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Register</a></li>
-                    <li><a href = {{route('profil',['id'=>Auth::id()])}}>Profil</a></li>
+                @if (Route::has('login'))
+                        @auth
+                            <li><a href={{ route('profil',['id'=>Auth::id()])}}>Profil</a></li>
+                        <li><a href="{{route('dashboard')}}">Déconnexion</a></li>
 
+                    @else
+                            <li><a href="{{ route('login') }}">Login</a></li>
+
+                            @if (Route::has('register'))
+                                <li><a href="{{ route('register') }}">Register</a></li>
+                            @endif
+                        @endauth
+                @endif
             </ul>
         </div>
     </div>
