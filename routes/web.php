@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\View\Components\jeux;
 use App\Models\Jeu;
-use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +15,7 @@ use App\Models\User;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[App\Http\Controllers\JeuController::class,'elemrdm'])->name('welcome');
 
 Route::get('/accueil', function () {
     return view('accueil.index');
@@ -39,7 +36,22 @@ Route::get('jeux.tri', function () {
     return view('jeux.index', ['jeux' => $jeux]);
 })->name('jeux.tri');
 
-Route::get('user/{id}/profile', function ($id) {
-    $user=User::find($id);
-    return view('jeux.profil')->with('user',$user);
-})->name('profil');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

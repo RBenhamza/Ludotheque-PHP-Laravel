@@ -33,6 +33,11 @@
     </div>
 
     <div class="item">
+        <p>Url_Media</p>
+        <input type="text" name="url_media" id="url_media" value="{{ old('url_media') }}">
+    </div>
+
+    <div class="item">
         <p>Age minimum</p>
         <input type="text" name="age" id="age" value="{{ old('age') }}">
     </div>

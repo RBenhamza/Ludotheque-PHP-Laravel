@@ -169,7 +169,7 @@
         <div id="mainListDiv" class="main_list">
             <ul class="navlinks">
                 <li><a href="/"> Accueil </a></li>
-                <li><a href="/jeux"> Liste des jeux</a></li>
+                <li><a href="{{route("jeux.index")}}"> Liste des jeux</a></li>
                 <li><a href="#">Jeux</a></li>
                 <li><a href = {{route('profil',['id'=>Auth::id()])}}>Profil</a></li>
                 <li><a href="#">Login</a></li>
