@@ -97,24 +97,7 @@
         </div>
     </div>--}}
 
-    @foreach($commentaire as $com)
-        <table class="table-fill">
-            <thead>
-            <tr>
-                <th class="text-left">Nom</th>
-                <th class="text-left">Editeur</th>
-                <th class="text-left">Theme</th>
-            </tr>
 
-            </thead>
-            <tbody class="table-hover">
-            <tr>
-                <td class="text-left">{{$com->commentaire}}</td>
-                <td class="text-left">{{$com->note}}</td>
-            </tr>
-            </tbody>
-        </table>
-    @endforeach
     <div class="text-center">
         <a href="{{route("jeux.index")}}" class="btn-href">Retour</a>
     </div>

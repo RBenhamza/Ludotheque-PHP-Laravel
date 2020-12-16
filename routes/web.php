@@ -35,6 +35,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::resource('jeux', 'JeuController');
 
+Route::resource('ajoutJeux', 'AjoutController');
+
 //Route::get('jeux.tri', function () {
 //    $jeux = Jeu::orderBy('nom', 'asc')->get();
 //    return view('jeux.index', ['jeux' => $jeux]);
