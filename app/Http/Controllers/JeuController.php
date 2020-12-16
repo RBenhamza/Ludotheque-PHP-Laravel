@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jeu;
-use App\Models\Theme;
 use Illuminate\Http\Request;
+use App\Models\Jeu;
+
 
 class JeuController extends Controller
 {
@@ -15,10 +15,7 @@ class JeuController extends Controller
      */
     public function index()
     {
-        $jeux = Jeu::all();
-        $themes = Theme::all();
-
-        return view('jeux.index', ['jeux' => $jeux,'themes' => $themes]);
+        //
     }
 
     /**
