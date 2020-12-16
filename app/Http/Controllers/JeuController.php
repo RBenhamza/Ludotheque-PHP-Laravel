@@ -91,7 +91,7 @@ class JeuController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show($id) {
         $jeu = Jeu::find($id);
@@ -132,5 +132,15 @@ class JeuController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function elemrdm(){
+        $jeux = Jeu::all()->pluck('id');
+        $faker = Factory::create('fr_FR');
+        $listidjeux = $faker->randomElements($jeux->toArray(),5);
+        $res = [];
+        foreach($listidjeux as $id)
+            $res[] = Jeu::find($id);
+        return view('welcome', ['res' => $res]);
     }
 }
