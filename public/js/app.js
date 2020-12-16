@@ -1834,7 +1834,7 @@
       };
       const observer = new MutationObserver(mutations => {
         for (let i = 0; i < mutations.length; i++) {
-          // Filter out mutations triggered from child components.
+          // Filter out mutations triggered from child jeux.
           const closestParentComponent = mutations[i].target.closest('[x-data]');
           if (!(closestParentComponent && closestParentComponent.isSameNode(this.$el))) continue;
 
@@ -1878,7 +1878,7 @@
         get(object, property) {
           if (property === '$isAlpineProxy') return true;
           var ref; // We can't just query the DOM because it's hard to filter out refs in
-          // nested components.
+          // nested jeux.
 
           self.walkAndSkipNestedComponents(self.$el, el => {
             if (el.hasAttribute('x-ref') && el.getAttribute('x-ref') === property) {
@@ -1958,7 +1958,7 @@
     },
     initializeComponent: function initializeComponent(el) {
       if (!el.__x) {
-        // Wrap in a try/catch so that we don't prevent other components
+        // Wrap in a try/catch so that we don't prevent other jeux
         // from initializing when one component contains an error.
         try {
           el.__x = new Component(el);
@@ -3276,7 +3276,7 @@ module.exports = (
       var originURL;
 
       /**
-    * Parse a URL to discover it's components
+    * Parse a URL to discover it's jeux
     *
     * @param {String} url The URL to be parsed
     * @returns {Object}
@@ -39259,8 +39259,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/hemery/An20-21/Encadrement/Marathon/ludotheque/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/hemery/An20-21/Encadrement/Marathon/ludotheque/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/admin/Bureau/ludotheque/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/admin/Bureau/ludotheque/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
