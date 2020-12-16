@@ -3,8 +3,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
+@extends('accueil.master')
+
+@section('navbar')
+    @parent
+@endsection
+@section('content')
 
 <a href="{{route("jeux.index")}}">Retour</a>
+<title>Page de {{$jeu->nom}}</title>
 <div>
     <p><strong>Titre  : </strong>{{$jeu->nom}}</p>
     <p><strong>Description : </strong>{{$jeu->nom}}</p>
@@ -40,3 +47,4 @@
         </div>
     </div>
 </div>
+@endsection

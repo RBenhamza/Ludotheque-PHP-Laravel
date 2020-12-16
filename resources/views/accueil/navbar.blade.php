@@ -1,3 +1,4 @@
+
 <style>
     @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
     html,
@@ -62,7 +63,7 @@
 
     .nav div.main_list ul li a {
         text-decoration: none;
-        color: #fff;
+        color: grey;
         line-height: 65px;
         font-size: 2.4rem;
     }
@@ -74,13 +75,13 @@
 
     /* Home section */
 
-    .home {
-        width: 100%;
-        height: 100vh;
-        background-image: url(https://images.unsplash.com/photo-1498550744921-75f79806b8a7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b0f6908fa5e81286213c7211276e6b3d&auto=format&fit=crop&w=1500&q=80);
-        background-position: center top;
-        background-size:cover;
-    }
+    /*.home {*/
+    /*    width: 100%;*/
+    /*    height: 100vh;*/
+    /*    background-image: url(https://images.unsplash.com/photo-1498550744921-75f79806b8a7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b0f6908fa5e81286213c7211276e6b3d&auto=format&fit=crop&w=1500&q=80);*/
+    /*    background-position: center top;*/
+    /*    background-size:cover;*/
+    /*}*/
     .navTrigger {
         display: none;
     }
@@ -163,12 +164,12 @@
 <nav class="nav">
     <div class="container">
         <div class="logo">
-            <a href="public/images/logo.png">Logo</a>
+{{--            <a><img src="./images/logo.png"></a>--}}
         </div>
         <div id="mainListDiv" class="main_list">
             <ul class="navlinks">
-                <li><a href="#">Jeux</a></li>
-                <li><a href="#">Jeux</a></li>
+                <li><a href="/"> Accueil </a></li>
+                <li><a href="/jeux"> Liste des jeux</a></li>
                 <li><a href="#">Jeux</a></li>
                 <li><a href="#">Jeux</a></li>
                 <li><a href="#">Login</a></li>
@@ -180,7 +181,7 @@
 
 <section class="home">
 </section>
-<div style="height: 1000px">
+<div style="height: 100px">
 
 </div>
 
@@ -209,3 +210,4 @@
 
     });
 </script>
+

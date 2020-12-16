@@ -1,3 +1,9 @@
+@extends('accueil.master')
+
+@section('navbar')
+    @parent
+@endsection
+@section('content')
 <html>
 <head>
     <title>Liste des jeux</title>
@@ -26,3 +32,4 @@
     </table>
 </body>
 </html>
+@endsection

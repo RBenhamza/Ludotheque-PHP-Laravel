@@ -1,3 +1,9 @@
+@extends('accueil.master')
+
+@section('navbar')
+    @parent
+@endsection
+@section('content')
 <title>Creation d'un jeu</title>
 <form action="{{route('jeux.store')}}" method="POST">
     {!! csrf_field() !!}
@@ -8,6 +14,7 @@
         <div class="name-item">
             <input type="text" name="nom" id="nom" value="{{ old('nom') }}"/>
         </div>
+
     </div>
 
     <div class="item">
@@ -51,3 +58,4 @@
         <button type="submit" href="/">Valider</button>
     </div>
 </form>
+@endsection
