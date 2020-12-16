@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\View\Components\jeux;
+use App\Models\Jeu;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +28,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('jeux', 'JeuController');
+
+Route::get('jeux.tri', function () {
+    $jeux = Jeu::orderBy('nom', 'asc')->get();
+    return view('jeux.index', ['jeux' => $jeux]);
+})->name('jeux.tri');

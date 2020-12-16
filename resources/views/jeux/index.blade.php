@@ -4,6 +4,7 @@
 </head>
 <div>
     <a href="{{route("jeux.create")}}" class="button">Ajouter un jeu</a>
+    <a href="{{route("jeux.tri")}}" class="button">Trier les jeux a->z </a>
 </div>
 <body>
 <h2>La liste des jeux</h2>
