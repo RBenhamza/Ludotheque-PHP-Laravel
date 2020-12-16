@@ -62,15 +62,15 @@ class JeuController extends Controller
         // sinon un message d'erreur est renvoyé vers l'utilisateur
 
         // préparation de l'enregistrement à stocker dans la base de données
-        $theme_ids = Theme::all()->pluck('id')->get();
-        $editeur_ids = Editeur::all()->pluck('id')->get();
+        $theme_ids = Theme::all()->pluck('id');
+        $editeur_ids = Editeur::all()->pluck('id');
         $faker = Factory::create('fr_FR');
         $jeu = new Jeu;
         $jeu->nom = $request->nom;
         $jeu->description = $request->description;
         $jeu->regles = $request->regles;
         $jeu->langue = $request->langue;
-        $jeu->url_mediat = $request->url_media;
+        $jeu->url_media = $request->url_media;
         $jeu->age = $request->age;
         $jeu->nombre_joueurs = $request->nombre_joueurs;
         $jeu->categorie = $request->categorie;
@@ -83,7 +83,7 @@ class JeuController extends Controller
         $jeu->save();
 
         // redirection vers la page qui affiche la liste des tâches
-        return redirect('/jeux.index');
+        return redirect('/jeux');
 
     }
 

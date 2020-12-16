@@ -2,7 +2,7 @@
 <form action="{{route('jeux.store')}}" method="POST">
     {!! csrf_field() !!}
 
-    <h1>Creation de Smartphone</h1>
+    <h1>Creation de jeu</h1>
     <div class="item">
         <p>Nom du jeu</p>
         <div class="name-item">
