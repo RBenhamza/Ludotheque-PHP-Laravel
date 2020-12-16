@@ -13,10 +13,6 @@
     <head>
         <title> Profil </title>
     </head>
-    <div>
-        <p><strong>Nom  : </strong>{{$user->name}}</p>
-        <p><strong>email : </strong>{{$user->email}}</p>
-    </div>
 
     <div>
         <p><strong>Nom  : </strong>{{$user->name}}</p>
