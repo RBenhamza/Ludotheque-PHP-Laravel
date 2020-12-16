@@ -27,7 +27,7 @@
     </style>
 </head>
 <body class="antialiased">
-<div class="relative flex items-top justify-center min-h-screen color sm:items-center sm:pt-0">
+<div class="relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0">
     <div>
         <button onclick="affichercacher()">Afficher 5 éléments random</button>
     </div>

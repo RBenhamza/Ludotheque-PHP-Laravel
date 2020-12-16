@@ -44,6 +44,7 @@
     </form>
 </div>
 
+
 <body>
 <h2>La liste des jeux</h2>
     <table border="1px">
