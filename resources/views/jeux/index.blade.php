@@ -16,7 +16,7 @@
             <tr>
                 <td>{{$jeu->nom}}</td>
                 <td> {{$jeu->description}}</td>
-                <td>{{$jeu->url_media}}</td>
+                <td><img src="{{$jeu->url_media}}"></td>
                 <td>{{$jeu->theme_id}}</td>
                 <td>{{$jeu->duree}}</td>
                 <td>{{$jeu->nombre_joueurs}}</td>
