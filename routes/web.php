@@ -15,9 +15,7 @@ use App\Models\Jeu;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[App\Http\Controllers\JeuController::class,'elemrdm'])->name('welcome');
 
 Route::get('/accueil', function () {
     return view('accueil.index');
@@ -37,3 +35,23 @@ Route::get('jeux.tri', function () {
     $jeux = Jeu::orderBy('nom', 'asc')->get();
     return view('jeux.index', ['jeux' => $jeux]);
 })->name('jeux.tri');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
