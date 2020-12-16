@@ -40,8 +40,6 @@ Route::resource('jeux', 'JeuController');
 //    return view('jeux.index', ['jeux' => $jeux]);
 //})->name('jeux.tri');
 
-Route::get('jeu/tri', [\App\Http\Controllers\JeuController::class, 'tri'])->name('jeux.tri');
-
 Route::get('/user/{id}/profil', function ($id) {
     $user = User::find($id);
     return view('jeux.profil')->with('user', $user);

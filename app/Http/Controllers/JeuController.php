@@ -17,12 +17,25 @@ class JeuController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $editeur_id = $request->get('editeur_id',null);
+        $theme_id = $request->get('themes_id',null);
+        $triPar = $request->get('tri',null);
         $jeux = Jeu::all();
         $themes = Theme::all();
+        $editeurs = Editeur::all();
+        if(isset($editeur_id)&&$editeur_id!="none"){
+            $jeux = Jeu::where('editeur_id',$editeur_id)->get();
+        }
+        else if(isset($theme_id)&&$theme_id!="none"){
+            $jeux = Jeu::where('theme_id',$theme_id)->get();
+        }
+        else if(isset($triPar)&&$triPar!="none"){
+            $jeux = Jeu::orderBy($request->tri, 'asc')->get();
+        }
 
-        return view('jeux.index', ['jeux' => $jeux,'themes' => $themes]);
+        return view('jeux.index', ['jeux' => $jeux,'themes' => $themes,'editeurs' => $editeurs, 'editeur_id'=>$editeur_id, 'themes_id'=>$theme_id]);
     }
 
     /**
@@ -149,9 +162,13 @@ class JeuController extends Controller
         return view('welcome', ['res' => $res]);
     }
 
-    public function tri(Request $request){
-//        $jeux = Jeu::all()->sortBy($elt);
-        $jeux = Jeu::orderBy($request->tri, 'asc')->get();
-        return view('jeux.index', ['jeux' => $jeux]);
-    }
+//    public function tri(Request $request){
+//        $jeux = Jeu::orderBy($request->tri, 'asc')->get();
+//        return view('jeux.index', ['jeux' => $jeux]);
+//    }
+//    public function triE(Request $request){
+//        $jeux = Jeu::where('editeur_id',$request->triE)->get();
+//        return view('jeux.index', ['jeux' => $jeux]);
+//    }
+
 }
