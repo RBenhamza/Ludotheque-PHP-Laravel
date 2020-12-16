@@ -19,5 +19,17 @@
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mariadb://localhost:3306/ludo</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="ludoteque@localhost" uuid="4d40040f-a5f4-4a63-bb64-37294abf6193">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/ludoteque</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="@localhost" uuid="7f324a75-b4ea-49f1-bc81-2caf2b604406">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+    </data-source>
   </component>
 </project>
