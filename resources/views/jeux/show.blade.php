@@ -9,22 +9,46 @@
     @parent
 @endsection
 @section('content')
-
-<a href="{{route("jeux.index")}}">Retour</a>
-<title>Page de {{$jeu->nom}}</title>
-<div>
-    <p><strong>Titre  : </strong>{{$jeu->nom}}</p>
-    <p><strong>Description : </strong>{{$jeu->nom}}</p>
-    <p><strong>Themes : </strong>{{$jeu->themes}}</p>
-    <p><strong>Mecaniquesd : </strong>{{$jeu->mecaniques}}</p>
-    <p><strong>Illustration: : </strong>{{$jeu->url_media}}</p>
-    <p><strong>Regles : </strong>{{$jeu->regles}}</p>
-    <p><strong>langue : </strong>{{$jeu->langue}}</p>
-    <p><strong>Age conseillé : </strong>{{$jeu->age}}</p>
-    <p><strong>Nombre Joueurs : </strong>{{$jeu->nombre_joueurs}}</p>
-    <p><strong>Categorie : </strong>{{$jeu->categorie}}</p>
-    <p><strong>Duree : </strong>{{$jeu->duree}}</p>
+    <title>{{$jeu->nom}}</title>
+<div class="container">
+    <div class="row">
+        <a href="{{route("jeux.index")}}">Retour</a>
+    </div>
+    <div class="row">
+        <p><strong>Titre  : </strong>{{$jeu->nom}}</p>
+    </div>
+    <div class="row">
+        <p><strong>Description : </strong>{{$jeu->description}}</p>
+    </div>
+    <div class="row">
+        <p><strong>Themes : </strong>{{$jeu->themes}}</p>
+    </div>
+    <div class="row">
+        <p><strong>Mecaniques : </strong>{{$jeu->mecaniques}}</p>
+    </div>
+    <div class="row">
+        <p><strong>Illustration: : </strong>{{$jeu->url_media}}</p>
+    </div>
+    <div class="row">
+        <p><strong>Regles : </strong>{{$jeu->regles}}</p>
+    </div>
+    <div class="row">
+        <p><strong>langue : </strong>{{$jeu->langue}}</p>
+    </div>
+    <div class="row">
+        <p><strong>Age conseillé : </strong>{{$jeu->age}}</p>
+    </div>
+    <div class="row">
+        <p><strong>Nombre Joueurs : </strong>{{$jeu->nombre_joueurs}}</p>
+    </div>
+    <div class="row">
+        <p><strong>Categorie : </strong>{{$jeu->categorie}}</p>
+    </div>
+    <div class="row">
+        <p><strong>Duree : </strong>{{$jeu->duree}}</p>
+    </div>
 </div>
+
 <!-- Button -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#popup">
     Afficher les règles
@@ -51,7 +75,7 @@
 </br>
 
 
-<div class="bottom-section">
+{{--<div class="bottom-section">
     <div class="comments-container">
         <h3>Commentaires</h3>
         <hr/>
@@ -71,6 +95,28 @@
                 <p>Aucuns commentaires.</p>
             @endif
         </div>
+    </div>--}}
+
+    @foreach($commentaire as $com)
+        <table class="table-fill">
+            <thead>
+            <tr>
+                <th class="text-left">Nom</th>
+                <th class="text-left">Editeur</th>
+                <th class="text-left">Theme</th>
+            </tr>
+
+            </thead>
+            <tbody class="table-hover">
+            <tr>
+                <td class="text-left">{{$com->commentaire}}</td>
+                <td class="text-left">{{$com->note}}</td>
+            </tr>
+            </tbody>
+        </table>
+    @endforeach
+    <div class="text-center">
+        <a href="{{route("jeux.index")}}" class="btn-href">Retour</a>
     </div>
 
     <div>

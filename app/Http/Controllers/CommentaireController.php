@@ -27,10 +27,9 @@ class CommentaireController extends Controller
      *test
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        $jeu=Jeu::find($id);
-        return view('commentaire.create',['jeu'=>$jeu]);
+        return view('commentaire.create');
     }
 
     /**
@@ -53,7 +52,7 @@ class CommentaireController extends Controller
         $jeu_ids = Jeu::all()->pluck('id');
         $faker = Factory::create('fr_FR');
         $commentaire = new Commentaire();
-        $commentaire->description = $request->description;
+        $commentaire->commentaire = $request->commentaire;
         $commentaire->note = $request->note;
         $commentaire->user_id = Auth::id();
         $commentaire->jeu_id = $faker->randomElement($jeu_ids);

@@ -5,3 +5,4 @@
 <div class="container">
     @yield('content', 'En Attente d\'un contenu')
 </div>
+
