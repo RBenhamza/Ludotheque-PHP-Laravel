@@ -41,22 +41,36 @@
                     @endauth
                 </div>
             @endif
-    <table border="1px">
-        <tr>
-            <td>nom</td><td>description</td><td>url_media</td><td>theme</td><td>durée</td><td>nombre de joueurs</td><td></td>
-        </tr>
-        @foreach($res as $jeu)
+    <div>
+        <button onclick="affichercacher()">Afficher 5 éléments random</button>
+    </div>
+    <div id="maDiv" style="display: none;">
+        <table border="1px">
             <tr>
-                <td>{{$jeu->nom}}</td>
-                <td> {{$jeu->description}}</td>
-                <td><img src="{{$jeu->url_media}}"></td>
-                <td>{{$jeu->theme_id}}</td>
-                <td>{{$jeu->duree}}</td>
-                <td>{{$jeu->nombre_joueurs}}</td>
+                <td>nom</td><td>description</td><td>url_media</td><td>theme</td><td>durée</td><td>nombre de joueurs</td><td></td>
             </tr>
-        @endforeach
-    </table>
+            @foreach($res as $jeu)
+                <tr>
+                    <td>{{$jeu->nom}}</td>
+                    <td> {{$jeu->description}}</td>
+                    <td><img src="{{$jeu->url_media}}"></td>
+                    <td>{{$jeu->theme_id}}</td>
+                    <td>{{$jeu->duree}}</td>
+                    <td>{{$jeu->nombre_joueurs}}</td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
     </body>
 </html>
 @endsection
-
+<script type="text/javascript">
+    function affichercacher() {
+        let div = document.getElementById("maDiv");
+        if (div.style.display === "none") {
+            div.style.display = "block";
+        } else {
+            div.style.display = "none";
+        }
+    }
+</script>
