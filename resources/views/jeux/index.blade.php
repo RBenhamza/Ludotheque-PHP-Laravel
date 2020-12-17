@@ -9,10 +9,12 @@
     <title>Liste des jeux</title>
 </head>
 <div>
-    <a href="{{route("jeux.create")}}" class="button">Ajouter un jeu</a>
-
+    <button type="button" class="btn btn-success"><a href="{{route("jeux.create")}}">Ajouter un jeu</a>
+    </button>
+<br>
+    <br>
     <form action="{{route('jeux.index')}}" method="GET">
-        <label for="selectTri">Trier par : </label>
+        <label for="selectTri"><h4>Trier par : </h4></label>
         <select id="selectTri" name="tri" onchange="this.form.submit()">
             <option value="none">--Trier par--</option>
             <option value="nom">nom</option>
@@ -23,7 +25,7 @@
 </div>
 <div>
     <form action="{{route('jeux.index')}}" method="GET">
-        <label for="triEditeur">Choix de l'éditeur</label>
+        <label for="triEditeur"><h4>Choix de l'éditeur</h4></label>
         <select id="triEditeur" name="editeur_id" onchange="this.form.submit()">
             <option value="none">--Editeurs--</option>
             @foreach($editeurs as $editeur)
@@ -34,7 +36,7 @@
 </div>
 <div>
     <form action="{{route('jeux.index')}}" method="GET">
-        <label for="triTheme">Choix du theme</label>
+        <label for="triTheme"><h4>Choix du theme</h4></label>
         <select id="triTheme" name="themes_id" onchange="this.form.submit()">
             <option value="none">--Themes--</option>
             @foreach($themes as $theme)
@@ -46,7 +48,7 @@
 
 
 <body>
-<h2>La liste des jeux</h2>
+<h2 class="display-4 text-center text-gray p-md-3">La liste des jeux</h2>
     <table border="1px">
         <tr>
             <td>Nom</td><td>Description</td><td>Photo</td><td>Theme</td><td>Durée</td><td>Nombre de joueurs</td><td>Editeur</td><td></td>

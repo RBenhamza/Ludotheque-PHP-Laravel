@@ -37,6 +37,10 @@
     .couleur{
         background: #248232;
     }
+    button{
+        text-decoration: none;
+
+    }
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark couleur fixed-top">
