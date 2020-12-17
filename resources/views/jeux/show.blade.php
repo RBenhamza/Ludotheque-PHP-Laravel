@@ -109,7 +109,7 @@
     @if(!empty($jeux->commentaires))
         <table border="1px">
             <tr>
-                <th>auteur</th><th>commentaire</th><th>note</th><th>date du comm</th>
+                <th>auteur</th><th>commentaire</th><th>note</th><th>date du commentaire</th>
             </tr>
             @foreach($jeux->commentaires as $comm)
                 <tr><td>{{$comm->user->name}}</td><td>{{$comm->commentaire}}</td><td>{{$comm->note}}</td><td>{{$comm->date_com}}</td></tr>
