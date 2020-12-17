@@ -118,11 +118,12 @@ class JeuController extends Controller
     public function show(Request $request,$id) {
         $tricomms = $request->get('tricomms',null);
         $jeux = Jeu::find($id);
+        $commentaires = $jeux->commentaires()->get();
         if(isset($tricomms)&&$tricomms!="none"){
-            $jeux = Jeu::join('commentaires', 'jeux.user_id', '=', 'commentaires.user_id')->orderBy($tricomms, 'asc')->get();
+            $commentaires = $jeux->commentaires()->orderBy($tricomms,'desc')->get();
         }
 
-        return view('jeux.show', ['jeux' => $jeux]);
+        return view('jeux.show', ['jeux' => $jeux,'commentaires' => $commentaires]);
     }
 
     /**
