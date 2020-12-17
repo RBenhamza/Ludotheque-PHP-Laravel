@@ -23,10 +23,12 @@ class JeuController extends Controller
         $editeur_id = $request->get('editeur_id',null);
         $theme_id = $request->get('themes_id',null);
         $triPar = $request->get('tri',null);
+        $meca_id = $request->get('mecanique_id',null);
 
         $jeux = Jeu::all();
         $themes = Theme::all();
         $editeurs = Editeur::all();
+        $meca = Mecanique::all();
 
         if(isset($editeur_id)&&$editeur_id!="none"){
             $jeux = Jeu::where('editeur_id',$editeur_id)->get();
@@ -37,8 +39,11 @@ class JeuController extends Controller
         else if(isset($triPar)&&$triPar!="none"){
             $jeux = Jeu::orderBy($request->tri, 'asc')->get();
         }
+        else if(isset($meca_id)&&$meca_id!="none"){
+            $jeux = Jeu::join('avec_mecaniques', 'jeux.id', '=', 'avec_mecaniques.jeu_id')->where('mecanique_id',$meca_id)->get();
+        }
 
-        return view('jeux.index', ['jeux' => $jeux,'themes' => $themes,'editeurs' => $editeurs,'editeur_id'=>$editeur_id, 'themes_id'=>$theme_id]);
+        return view('jeux.index', ['meca'=>$meca,'jeux' => $jeux,'themes' => $themes,'editeurs' => $editeurs,'editeur_id'=>$editeur_id, 'themes_id'=>$theme_id, 'mecanique_id'=>$meca_id]);
     }
 
     /**

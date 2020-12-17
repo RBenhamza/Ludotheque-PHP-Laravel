@@ -55,7 +55,19 @@
                         </select>
                     </form>
                 </div>
+                <div class="col-sm-12 col-md-4 col-xl-4">
+                    <form action="{{route('jeux.index')}}" method="GET">
+                        <label for="triMeca"><h4>Choix de la mécanique</h4></label>
+                        <select class="form-control" id="triMeca" name="mecanique_id" onchange="this.form.submit()">
+                            <option value="none">--Meca--</option>
+                            @foreach($meca as $m)
+                                    <option value="{{$m->id}}" @if($m->id==$mecanique_id) selected @endif>{{$m->nom}}</option>
+                            @endforeach
+                        </select>
+                    </form>
+                </div>
             </div>
+
         </div>
 </div>
 
