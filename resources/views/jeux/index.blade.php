@@ -62,7 +62,9 @@
                 <td>{{$jeu->duree}}</td>
                 <td>{{$jeu->nombre_joueurs}}</td>
                 <td>{{$jeu->editeur->nom}}</td>
-                <td>{{$jeu->mecaniques}}</td>∕
+                <td>@foreach($jeu->mecaniques as $meca)
+                        {{$meca->nom}} <br>
+                    @endforeach</td>∕
                 <td><a href = {{route('jeux.show',$jeu->id)}}>Plus d'infos</a></td>
             </tr>
         @endforeach
