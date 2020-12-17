@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Achats;
 use App\Models\Editeur;
 use App\Models\Jeu;
+use App\Models\User;
 use App\Models\Theme;
 use Faker\Factory;
 use Illuminate\Http\Request;
@@ -63,7 +64,8 @@ class AchatController extends Controller
         $achat->lieu = $request->lieu;
         $achat->save();
         // redirection vers la page qui affiche la liste des tâches
-        return redirect('/jeux');
+        $user=User::find(Auth::id());
+        return redirect('/user/'.Auth::id().'/profil')->with('user', $user);
     }
 
     /**
@@ -106,8 +108,8 @@ class AchatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,$userid)
     {
-        //
+
     }
 }

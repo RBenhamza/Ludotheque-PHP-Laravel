@@ -53,6 +53,12 @@ Route::get('/user/{id}/profil', function ($id) {
 
 Route::get('/jeux/{id}/commenter','CommentaireController@create')->name('commentaire.create');
 
+Route::get('/achat/{uid}/{jid}/{px}/{lx}/{da}/delete',function($uid,$jid,$px,$lx,$da){
+    DB::delete(DB::raw('delete from achats where jeu_id=:jid and user_id=:uid and prix=:px and lieu=:lx and date_achat=:da'),array('jid'=>$jid,'uid'=>$uid,'px'=>$px,'lx'=>$lx,'da'=>$da));
+    $user=User::find($uid);
+    return redirect('/user/'.$uid.'/profil')->with('user', $user);
+})->name("achat.delete");
+
 
 
 
