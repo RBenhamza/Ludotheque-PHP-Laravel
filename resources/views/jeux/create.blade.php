@@ -7,7 +7,10 @@
 <title>Creation d'un jeu</title>
 <form action="{{route('jeux.store')}}" method="POST">
     {!! csrf_field() !!}
-
+    <?php
+    $themes = App\Models\Theme::all();
+    $authid=Auth::id();
+    ?>
     <h1>Creation de jeu</h1>
     <div class="item">
         <p>Nom du jeu</p>
@@ -46,13 +49,19 @@
     <div class="item">
         <p>Nombre de joueurs</p>
         <input type="text" name="nombre_joueurs" id="nombre_joueurs" value="{{ old('nombre_joueurs') }}">
-    </div>
-
+    </div><br>
     <div class="item">
-        <p>Categorie</p>
+        <select id="theme_id" name="theme_id">
+            <option value="none">--Theme--</option>
+            @foreach($themes as $theme)
+                <option value="{{$theme->id}}">{{$theme->nom}}</option>
+            @endforeach
+        </select>
+    </div><br>
+    <div class="item">
+        <p>Catégorie</p>
         <input type="text" name="categorie" id="categorie" value="{{ old('categorie') }}">
     </div>
-
     <div class="item">
         <p>Durée</p>
         <input type="text" name="duree" id="duree" value="{{ old('duree') }}">

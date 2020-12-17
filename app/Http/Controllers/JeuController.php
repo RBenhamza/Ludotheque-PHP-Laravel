@@ -74,6 +74,7 @@ class JeuController extends Controller
                 'categorie' => 'required',
                 'duree' => 'required',
                 'editeur'=>'required',
+                'theme_id'=>'required',
             ]
         );
 
@@ -98,7 +99,7 @@ class JeuController extends Controller
         $jeu->categorie = $request->categorie;
         $jeu->duree = $request->duree;
         $jeu->user_id = Auth::id();
-        $jeu->theme_id = $faker->randomElement($theme_ids);
+        $jeu->theme_id = $request->theme_id;
         $jeu->editeur_id = $editeur->id;
 
         // insertion de l'enregistrement dans la base de données
