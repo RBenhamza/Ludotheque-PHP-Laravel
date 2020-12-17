@@ -41,7 +41,10 @@
         <p><strong>Themes : </strong>{{$jeux->themes}}</p>
     </div>
     <div class="row">
-        <p><strong>Mecaniques : </strong>{{$jeux->mecaniques}}</p>
+        <p><strong>Mecaniques : <br></strong>
+            @foreach($jeux->mecaniques as $meca)
+                - {{$meca->nom}} <br>
+        @endforeach
     </div>
     <div class="row">
         <p><strong>Illustration: : </strong>{{$jeux->url_media}}</p>

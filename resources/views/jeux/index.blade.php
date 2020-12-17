@@ -36,7 +36,7 @@
 </div>
 <div>
     <form action="{{route('jeux.index')}}" method="GET">
-        <label for="triTheme"><h4>Choix du theme</h4></label>
+        <label for="triTheme"><h4>Choix du thème</h4></label>
         <select id="triTheme" name="themes_id" onchange="this.form.submit()">
             <option value="none">--Themes--</option>
             @foreach($themes as $theme)
