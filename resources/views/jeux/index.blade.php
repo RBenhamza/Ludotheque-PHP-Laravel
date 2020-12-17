@@ -9,9 +9,16 @@
     <title>Liste des jeux</title>
 </head>
 <div>
-    <a href="{{route("jeux.create")}}" style="text-decoration:none;"><button type="button" class="btn btn-success">Ajouter un jeu
-        </button></a>
-<br>
+    @if (Route::has('login'))
+        @auth
+            <a href="{{route("jeux.create")}}" style="text-decoration:none;"><button type="button" class="btn btn-success">Ajouter un jeu
+                </button></a>
+        @endauth
+        @else
+            <div></div>
+        @endif
+
+<br>   
     <br>
     <form action="{{route('jeux.index')}}" method="GET">
         <label for="selectTri"><h4>Trier par : </h4></label>

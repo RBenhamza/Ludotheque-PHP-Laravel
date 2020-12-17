@@ -26,11 +26,18 @@
         }
     </style>
 </head>
+
 <body class="antialiased">
 <div class="relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0">
-    <div>
-        <button onclick="affichercacher()">Afficher 5 éléments random</button>
-    </div>
+    @if (Route::has('login'))
+        @auth
+            <div>
+                <button onclick="affichercacher()">Afficher 5 éléments random</button>
+            </div>
+        @endauth
+    @else
+        <div></div>
+    @endif
     <div id="maDiv" style="display: none;">
         <table border="1px">
             <tr>
