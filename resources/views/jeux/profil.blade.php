@@ -20,7 +20,7 @@
         <p><strong>Nom  : </strong>{{$user->name}}</p>
         <p><strong>email : </strong>{{$user->email}}</p>
 
-        <a href="{{route("achat.create")}}" class="button">Ajouter l'achat d'un jeu</a>
+        {{--<a href="{{route("achat.create")}}" class="button">Ajouter l'achat d'un jeu</a>--}}
 
         <p>Mes jeux :</p>
         @foreach($results as $jeu)
