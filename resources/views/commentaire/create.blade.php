@@ -21,7 +21,7 @@
                 <div class="col-md-6">
                     <div class="name-item">
                     <select id="note" name="note">
-                        <option value="none">--Note--</option>
+                        <option value="0">--Note--</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
