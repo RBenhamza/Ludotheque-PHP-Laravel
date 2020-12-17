@@ -27,6 +27,67 @@ class JeuxSeeder extends Seeder
             'user_id' => '5',
             'theme_id' =>'5',
             'editeur_id' =>'6',
-        ]);
+        ],
+            [
+                'nom' => 'Ligretto Vert',
+                'description' => 'Jouer à en faire voler les cartes !  On ne saurait être plus rapide !',
+                'regles' => 'Tous les joueurs essaient en même temps de placer autant de cartes de la même couleur que possible en respectant l\'ordre roissant de 1 à 10.',
+                'langue'=>'Fr',
+                'url_media'=>'https://cdn2.philibertnet.com/389677-thickbox_default/ligretto-vert.jpg',
+                'age'=> '8',
+                'nombre_joueurs' => '2',
+                'categorie' => '',
+                'duree' => '30',
+                'user_id' => '3',
+                'theme_id' =>'8',
+                'editeur_id' =>'14',
+            ],
+            [
+                'nom' => 'Tous au Poulailler',
+                'description' => 'Vite, vite, trouve un panier et ramasse le plus d’oeufs possible dans le poulailler !',
+                'regles' => 'Un premier jeu de cartes pour les enfants dès 3 ans avec des règles évolutives pour les plus grands. Il s’agit de trouver un panier, puis de trouver les oeufs frais, en prenant bien soin d’éviter les oeufs cassés et surtout en évitant les poules qui défendent le poulailler.
+
+À la règle de base viennent ensuite s’ajouter des règles évolutives qui permettent, après le bon apprentissage du jeu, d’introduire de nouvelles règles pour un jeu de mémoire tout d’abord puis pour un jeu de prise de risque du type «stop ou encore ?».
+
+Au final, un jeu simple et évolutif, pour faire le tremplin entre l’univers des jouets et celui des jeux, grâce à un joli thème qui parle à chacun d’entre nous, et qui ravira les plus jeunes.',
+                'langue'=>'Fr',
+                'url_media'=>'https://cdn3.philibertnet.com/312244-thickbox_default/tous-au-poulailler.jpg',
+                'age'=> '3',
+                'nombre_joueurs' => '2',
+                'categorie' => '',
+                'duree' => '30',
+                'user_id' => '1',
+                'theme_id' =>'9',
+                'editeur_id' =>'3',
+            ],
+            [
+                'nom' => 'Chromino',
+                'description' => 'Un jeu simple de tactique et d\'observation Chromino est une captivante variante du jeu de domino utilisant les couleurs pour troubler l\'esprit et la réflexion des joueurs',
+                'regles' => 'Vous devrez être le premier à vous débarrasser de vos chrominos en trouvant la meilleure place pour les poser, sachant qu\'un chromino doit être relié aux autres par deux point de contact de couleur semblable. Astuce, optimisation, observation, tactique et sang froid seront nécessaires pour vous mener jusqu\'à la victoire.',
+                'langue'=>'Fr',
+                'url_media'=>'https://cdn2.philibertnet.com/322655-thickbox_default/chromino-.jpg',
+                'age'=> '7',
+                'nombre_joueurs' => '1',
+                'categorie' => '',
+                'duree' => '25',
+                'user_id' => '7',
+                'theme_id' =>'2',
+                'editeur_id' =>'7',
+            ],
+            [
+                'nom' => 'Scotland Yard',
+                'description' => 'Une course-poursuite mouvementée à travers Londres, en taxi, en bus et en métro.',
+                'regles' => 'Une course-poursuite mouvementée à travers Londres, en taxi, en bus et en métro. Les détectives suivent Mixter X de très près. Seuls indices, ses tickets de transport. Réussiront - ils à l\'attraper? Un jeu sans dé ni cartes. Pour retrouver Mister X, il faut de la logique, de l\'observation associées à une bonne stratégie... et un peu de chance!',
+                'langue'=>'Fr',
+                'url_media'=>'https://cdn1.philibertnet.com/305818-thickbox_default/scotland-yard.jpg',
+                'age'=> '8',
+                'nombre_joueurs' => '3',
+                'categorie' => '',
+                'duree' => '30',
+                'user_id' => '6',
+                'theme_id' =>'2',
+                'editeur_id' =>'10',
+            ]
+        );
     }
 }
