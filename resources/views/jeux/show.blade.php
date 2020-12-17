@@ -146,7 +146,7 @@
 </div>
 
 </br>
-    @if(!empty($commentaires->id))
+    @if(!empty($commentaires))
         <div>
             <form action="{{route('jeux.show',$jeux->id)}}" method="GET">
                 <label for="Tri commentaires"><h4>Trier les commentaires</h4></label>
@@ -164,7 +164,18 @@
                 <th>auteur</th><th>commentaire</th><th>note</th><th>date du commentaire</th>
             </tr>
             @foreach($commentaires as $comm)
-                <tr><td>{{$comm->user->name}}</td><td>{{$comm->commentaire}}</td><td>{{$comm->note}}</td><td>{{$comm->date_com}}</td></tr>
+                <tr><td>{{$comm->user->name}}</td><td>{{$comm->commentaire}}</td><td>{{$comm->note}}</td><td>{{$comm->date_com}}</td>
+                    @if(Auth::id()==$comm->user_id||Auth::id()==$jeux->user_id)
+                    <td>    <form action="{{route('commentaire.destroy',$comm->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <div class="text-center">
+                                <button type="submit" name="delete" value="valide">Supprimer</button>
+                            </div>
+                        </form></td></tr>
+                @else
+                    <div></div>
+                @endif
             @endforeach
         </table>
         <br>
@@ -179,6 +190,4 @@
     @else
         <div></div>
     @endif
-
-
 @endsection

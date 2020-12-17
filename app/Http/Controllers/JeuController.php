@@ -163,7 +163,7 @@ class JeuController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
     public function random(){
 
