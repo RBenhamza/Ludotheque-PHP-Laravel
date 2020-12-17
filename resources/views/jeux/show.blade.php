@@ -85,6 +85,6 @@
     @else
         <h3>aucun smartphone</h3>
     @endif
-    <a href="{{route("commentaire.create",$jeux->id)}}">Ajouter un commentaire</a>
+    <a href="{{route("commentaire.create",['id'=>$jeux->id])}}">Ajouter un commentaire</a>
 
 @endsection

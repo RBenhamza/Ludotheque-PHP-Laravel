@@ -48,6 +48,7 @@ Route::get('/user/{id}/profil', function ($id) {
     return view('jeux.profil')->with('user', $user);
 })->name('profil');
 
+Route::get('/jeux/{id}/commenter','CommentaireController@create')->name('commentaire.create');
 
 
 

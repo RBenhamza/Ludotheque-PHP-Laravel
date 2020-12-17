@@ -30,9 +30,9 @@ class CommentaireController extends Controller
      *test
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('commentaire.create');
+        return view('commentaire.create',['id'=>$id]);
     }
 
     /**
