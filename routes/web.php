@@ -49,7 +49,7 @@ Route::post('/achat/{jid}', [\App\Http\Controllers\UserController::class,  'stor
 Route::get('/user/{id}/profil', function ($id) {
     $user=User::find($id);
     return view('jeux.profil')->with('user', $user);
-})->name('profil');
+})->name('profil')->middleware('auth');
 
 Route::get('/jeux/{id}/commenter','CommentaireController@create')->name('commentaire.create');
 
