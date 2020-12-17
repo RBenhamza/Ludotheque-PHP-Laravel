@@ -26,7 +26,7 @@
         <p>Mes jeux :</p>     <button type="button" class="btn btn-success"><a href="{{route("achat.create")}}">Ajouter un jeu acheté</a>
         </button>
         @foreach($results as $jeu)
-            <p><strong>Nom :</strong>{{$jeu->nom}}<br> <strong>Date d'achat :</strong>{{$jeu->date_achat}} <strong>Prix :</strong>{{$jeu->prix}} <strong>Lieu de stockage :</strong>{{$jeu->lieu}}
+            <p><button type="button" class="btn btn-danger"><a href="{{route("achat.create")}}">X</a></button><strong>Nom :</strong>{{$jeu->nom}}<br> <strong>Date d'achat :</strong>{{$jeu->date_achat}} <strong>Prix :</strong>{{$jeu->prix}} <strong>Lieu de stockage :</strong>{{$jeu->lieu}}
         @endforeach
     </div>
 </html>

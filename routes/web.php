@@ -36,7 +36,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::resource('jeux', 'JeuController');
 
 Route::resource('achat', 'AchatController');
-Route::resource('ajoutJeux', 'AjoutController');
+Route::get('/ajoutJeux', [\App\Http\Controllers\UserController::class,  'collection'])->name('user.collection');
+Route::get('/suppression/{jid}', [\App\Http\Controllers\UserController::class,  'suppression'])->name('user.suppression');
+Route::get('/achat/{jid}', [\App\Http\Controllers\UserController::class,  'ajouterAchat'])->name('user.ajouterAchat');
+Route::post('/achat/{jid}', [\App\Http\Controllers\UserController::class,  'storeAchat'])->name('user.storeAchat');
 
 //Route::get('jeux.tri', function () {
 //    $jeux = Jeu::orderBy('nom', 'asc')->get();
