@@ -19,6 +19,9 @@
     <div>
         <p><strong>Nom  : </strong>{{$user->name}}</p>
         <p><strong>email : </strong>{{$user->email}}</p>
+
+        <a href="{{route("achat.create")}}" class="button">Ajouter l'achat d'un jeu</a>
+
         <p>Mes jeux :</p>
         @foreach($results as $jeu)
             <p><strong>Nom :</strong>{{$jeu->nom}}<br> <strong>Date d'achat :</strong>{{$jeu->date_achat}} <strong>Prix :</strong>{{$jeu->prix}} <strong>Lieu de stockage :</strong>{{$jeu->lieu}}

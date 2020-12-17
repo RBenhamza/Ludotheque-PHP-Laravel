@@ -1,4 +1,12 @@
-<div class="container">
+@extends('accueil.master')
+
+@section('navbar')
+    @parent
+@endsection
+@section('content')
+
+
+    <div class="container">
     <div class="row">
         <a href="{{route("jeux.index")}}">Retour</a>
     </div>
@@ -18,3 +26,6 @@
         <p><strong>User_id : </strong>{{$commentaire->user_id}}</p>
     </div>
 </div>
+
+
+@endsection

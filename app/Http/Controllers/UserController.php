@@ -32,7 +32,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('jeux.profil');
+        return view('achat.create');
     }
 
     /**
