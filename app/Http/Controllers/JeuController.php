@@ -108,10 +108,10 @@ class JeuController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show($id) {
-        $jeu = Jeu::find($id);
-        $commentaires = Commentaire::find($id);
+        $jeux = Jeu::find($id);
 
-        return view('jeux.show', ['jeu' => $jeu,'commentaires'=>$commentaires]);
+
+        return view('jeux.show', ['jeux' => $jeux]);
     }
 
     /**

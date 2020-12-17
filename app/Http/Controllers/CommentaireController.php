@@ -15,11 +15,12 @@ class CommentaireController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        $comments = Commentaire::all();
+//        $comments = Commentaire::all();
+//        return view('commentaire.index', ['comms' => $comments]);
     }
 
     /**

@@ -9,43 +9,43 @@
     @parent
 @endsection
 @section('content')
-    <title>{{$jeu->nom}}</title>
+    <title>{{$jeux->nom}}</title>
 <div class="container">
     <div class="row">
         <a href="{{route("jeux.index")}}">Retour</a>
     </div>
     <div class="row">
-        <p><strong>Titre  : </strong>{{$jeu->nom}}</p>
+        <p><strong>Titre  : </strong>{{$jeux->nom}}</p>
     </div>
     <div class="row">
-        <p><strong>Description : </strong>{{$jeu->description}}</p>
+        <p><strong>Description : </strong>{{$jeux->description}}</p>
     </div>
     <div class="row">
-        <p><strong>Themes : </strong>{{$jeu->themes}}</p>
+        <p><strong>Themes : </strong>{{$jeux->themes}}</p>
     </div>
     <div class="row">
-        <p><strong>Mecaniques : </strong>{{$jeu->mecaniques}}</p>
+        <p><strong>Mecaniques : </strong>{{$jeux->mecaniques}}</p>
     </div>
     <div class="row">
-        <p><strong>Illustration: : </strong>{{$jeu->url_media}}</p>
+        <p><strong>Illustration: : </strong>{{$jeux->url_media}}</p>
     </div>
     <div class="row">
-        <p><strong>Regles : </strong>{{$jeu->regles}}</p>
+        <p><strong>Regles : </strong>{{$jeux->regles}}</p>
     </div>
     <div class="row">
-        <p><strong>langue : </strong>{{$jeu->langue}}</p>
+        <p><strong>langue : </strong>{{$jeux->langue}}</p>
     </div>
     <div class="row">
-        <p><strong>Age conseillé : </strong>{{$jeu->age}}</p>
+        <p><strong>Age conseillé : </strong>{{$jeux->age}}</p>
     </div>
     <div class="row">
-        <p><strong>Nombre Joueurs : </strong>{{$jeu->nombre_joueurs}}</p>
+        <p><strong>Nombre Joueurs : </strong>{{$jeux->nombre_joueurs}}</p>
     </div>
     <div class="row">
-        <p><strong>Categorie : </strong>{{$jeu->categorie}}</p>
+        <p><strong>Categorie : </strong>{{$jeux->categorie}}</p>
     </div>
     <div class="row">
-        <p><strong>Duree : </strong>{{$jeu->duree}}</p>
+        <p><strong>Duree : </strong>{{$jeux->duree}}</p>
     </div>
 </div>
 
@@ -59,10 +59,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <p> Règles de {{$jeu->nom}} </p>
+                <p> Règles de {{$jeux->nom}} </p>
             </div>
             <div class="modal-body">
-                <p> {{$jeu->regles}}</p>
+                <p> {{$jeux->regles}}</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer
@@ -73,39 +73,18 @@
 </div>
 
 </br>
-
-
-{{--<div class="bottom-section">
-    <div class="comments-container">
-        <h3>Commentaires</h3>
-        <hr/>
-
-        <div class="comment-wrapper">
-            @if(!empty($commentaire))
-                @foreach($commentaires as $commentaire)
-                    <tr>
-                        <td>{{$commentaire->description}}</td>
-                        <td> {{$commentaire->date_com}}</td>
-                        <td> {{$commentaire->note}}</td>
-                        <td> {{$commentaire->jeu_id}}</td>
-                        <td> {{$commentaire->user_id}}</td>
-                    </tr>
-                @endforeach
-            @else
-                <p>Aucuns commentaires.</p>
-            @endif
-        </div>
-    </div>--}}
-
-
-    <div class="text-center">
-        <a href="{{route("jeux.index")}}" class="btn-href">Retour</a>
-    </div>
-
-    <div>
-        <a href="{{route('commentaire.create',[$jeu->id])}}">Créer un commentaire pour {{$jeu->nom}}</a>
-    </div>
-
+    @if(!empty($jeux->commentaires))
+        <table border="1px">
+            <tr>
+                <th>auteur</th><th>commentaire</th><th>note</th><th>date du comm</th>
+            </tr>
+            @foreach($jeux->commentaires as $comm)
+                <tr><td>{{$comm->user->name}}</td><td>{{$comm->commentaire}}</td><td>{{$comm->note}}</td><td>{{$comm->date_com}}</td></tr>
+            @endforeach
+        </table>
+    @else
+        <h3>aucun smartphone</h3>
+    @endif
 
 
 @endsection
