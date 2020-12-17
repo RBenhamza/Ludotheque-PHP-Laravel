@@ -115,6 +115,17 @@
 </div>
 
 </br>
+    <div>
+        <form action="{{route('jeux.show',$jeux->id)}}" method="GET">
+            <label for="Tri commentaires"><h4>Trier les commentaires</h4></label>
+            <select id="tricomms" name="tricomms" onchange="this.form.submit()">
+                <option value="none">--Commentaires--</option>
+                <option value="date_com">Date</option>
+                <option value="note">Note</option>
+                <option value="user_id">Utilisateur</option>
+            </select>
+        </form>
+    </div>
     @if(!empty($jeux->commentaires))
         <table border="1px">
             <tr>

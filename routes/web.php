@@ -51,6 +51,7 @@ Route::get('/user/{id}/profil', function ($id) {
     return view('jeux.profil')->with('user', $user);
 })->name('profil')->middleware('auth');
 
+//Route::get('/jeux/{id}',[\App\Http\Controllers\JeuController::class, 'show'])->name('jeux.show');
 Route::get('/jeux/{id}/commenter','CommentaireController@create')->name('commentaire.create');
 
 Route::get('/achat/{uid}/{jid}/{px}/{lx}/{da}/delete',function($uid,$jid,$px,$lx,$da){

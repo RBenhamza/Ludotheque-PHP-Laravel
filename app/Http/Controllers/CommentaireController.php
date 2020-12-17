@@ -10,6 +10,7 @@ use App\Models\User;
 use Database\Seeders\UsersSeeder;
 use Faker\Factory;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 
 class CommentaireController extends Controller
@@ -39,7 +40,7 @@ class CommentaireController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
@@ -64,7 +65,7 @@ class CommentaireController extends Controller
         $commentaire->date_com=$today = date("Y-m-d H:i:s");
         $commentaire->save();
 
-        return redirect('/jeux');
+        return redirect(\route('jeux.show',$commentaire->jeu_id));
     }
 
 

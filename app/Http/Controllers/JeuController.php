@@ -27,7 +27,6 @@ class JeuController extends Controller
         $jeux = Jeu::all();
         $themes = Theme::all();
         $editeurs = Editeur::all();
-        $meca = Mecanique::all();
 
         if(isset($editeur_id)&&$editeur_id!="none"){
             $jeux = Jeu::where('editeur_id',$editeur_id)->get();
@@ -39,7 +38,7 @@ class JeuController extends Controller
             $jeux = Jeu::orderBy($request->tri, 'asc')->get();
         }
 
-        return view('jeux.index', ['jeux' => $jeux,'themes' => $themes,'editeurs' => $editeurs, 'meca'=>$meca, 'editeur_id'=>$editeur_id, 'themes_id'=>$theme_id]);
+        return view('jeux.index', ['jeux' => $jeux,'themes' => $themes,'editeurs' => $editeurs,'editeur_id'=>$editeur_id, 'themes_id'=>$theme_id]);
     }
 
     /**
@@ -116,9 +115,12 @@ class JeuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show(Request $request,$id) {
+        $tricomms = $request->get('tricomms',null);
         $jeux = Jeu::find($id);
-
+        if(isset($tricomms)&&$tricomms!="none"){
+            $jeux = Jeu::join('commentaires', 'jeux.user_id', '=', 'commentaires.user_id')->orderBy($tricomms, 'asc')->get();
+        }
 
         return view('jeux.show', ['jeux' => $jeux]);
     }
