@@ -8,7 +8,7 @@
     $nbcommjeu =DB::select(DB::raw('select count(commentaires.note) as \'nb_com\' from commentaires where jeu_id=:act '),array('act'=>$jeux->id));
     $nbcommglbl = DB::select(DB::raw('select count(*) as \'nb_comglobal\' from commentaires'));
     $classement =DB::select(DB::raw('SELECT RowNr as \'pos\' FROM (SELECT ROW_NUMBER() OVER (ORDER BY avg(note) desc) AS RowNr,avg(note),jeu_id FROM commentaires inner join jeux on commentaires.jeu_id = jeux.id where jeux.theme_id=(select theme_id from jeux where id = :act)group by jeu_id) sub WHERE sub.jeu_id=:act2'),array('act'=>$jeux->id,'act2'=>$jeux->id));
-
+    $nbcom=DB::select(DB::raw('select count(*) as \'nombre\' from commentaires where jeu_id=:act'),array('act'=>$jeux->id));
 //variable cadre tarifaires
     $prix_moy = DB::select(DB::raw('select avg(achats.prix) as \'moy_prix\' from achats where jeu_id=:act'),array('act'=>$jeux->id));
     $prixbas = DB::select(DB::raw('select min(achats.prix) as \'min_prix\' from achats where jeu_id=:act '),array('act'=>$jeux->id));
@@ -77,7 +77,12 @@
         <li>La note la plus haute : {{$hautenote[0]->max_note}}</li>
         <li>Nombre de commentaires sur ce jeu : {{$nbcommjeu[0]->nb_com}}</li>
         <li>Nombre de commentaires sur le site : {{$nbcommglbl[0]->nb_comglobal}}</li>
-        <li>Position dans le classement (même thème) : {{$classement[0]->pos}} </li>
+        @if ($nbcom[0]->nombre>0)
+            <li>Position dans le classement (même thème) : {{$classement[0]->pos}} </li>
+        @else
+            <li>Position dans le classement (même thème) : Inconnu (pas de notes).</li>
+        @endif
+
     </div>
 
     <div style="width: 600px;  padding-top:10px; padding-bottom:10px;border: 3px solid #A0A0A0; text-align: center;background: #C0C0C0;">
