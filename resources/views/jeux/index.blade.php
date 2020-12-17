@@ -92,7 +92,9 @@
                 <td><a href = {{route('jeux.show',$jeu->id)}}>Plus d'infos</a></td>
             </tr>
         @endforeach
+
     </table>
+{{--{{ $jeux->onEachSide(5)->links() }}--}}
 </body>
 </html>
 @endsection

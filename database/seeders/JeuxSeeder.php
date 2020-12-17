@@ -87,7 +87,7 @@ Au final, un jeu simple et évolutif, pour faire le tremplin entre l’univers d
                 'user_id' => '6',
                 'theme_id' =>'2',
                 'editeur_id' =>'10',
-            ]
+            ],
         );
     }
 }
