@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Commentaire;
 use App\Models\Editeur;
 use App\Models\Jeu;
+use App\Models\Mecanique;
 use App\Models\Theme;
 use Faker\Factory;
 use Illuminate\Http\Request;
@@ -22,9 +23,12 @@ class JeuController extends Controller
         $editeur_id = $request->get('editeur_id',null);
         $theme_id = $request->get('themes_id',null);
         $triPar = $request->get('tri',null);
+
         $jeux = Jeu::all();
         $themes = Theme::all();
         $editeurs = Editeur::all();
+        $meca = Mecanique::all();
+
         if(isset($editeur_id)&&$editeur_id!="none"){
             $jeux = Jeu::where('editeur_id',$editeur_id)->get();
         }
@@ -35,7 +39,7 @@ class JeuController extends Controller
             $jeux = Jeu::orderBy($request->tri, 'asc')->get();
         }
 
-        return view('jeux.index', ['jeux' => $jeux,'themes' => $themes,'editeurs' => $editeurs, 'editeur_id'=>$editeur_id, 'themes_id'=>$theme_id]);
+        return view('jeux.index', ['jeux' => $jeux,'themes' => $themes,'editeurs' => $editeurs, 'meca'=>$meca, 'editeur_id'=>$editeur_id, 'themes_id'=>$theme_id]);
     }
 
     /**

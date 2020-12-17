@@ -6,6 +6,8 @@ use App\Models\Commentaire;
 use App\Models\Editeur;
 use App\Models\Jeu;
 use App\Models\Theme;
+use App\Models\User;
+use Database\Seeders\UsersSeeder;
 use Faker\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -46,17 +48,19 @@ class CommentaireController extends Controller
             $request,
             [
                 'commentaire' => 'required',
-                'note' => 'required'
+                'note' => 'required',
+                'jeu_id' => 'required',
             ]
         );
 
-        $jeu_ids = Jeu::all()->pluck('id');
-        $faker = Factory::create('fr_FR');
+
+//        $jeu_id = Jeu::all()->pluck('id');
+//        $faker = Factory::create('fr_FR');
         $commentaire = new Commentaire();
         $commentaire->commentaire = $request->commentaire;
         $commentaire->note = $request->note;
         $commentaire->user_id = Auth::id();
-        $commentaire->jeu_id = $faker->randomElement($jeu_ids);
+        $commentaire->jeu_id = $request->jeu_id;
 
         $commentaire->save();
 

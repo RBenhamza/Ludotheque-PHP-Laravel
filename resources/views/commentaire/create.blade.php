@@ -26,6 +26,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="item">
+                        <p>id du jeu (temporaire)</p>
+                        <div class="name-item">
+                            <input type="text" name="jeu_id" id="jeu_id" value="{{ old('jeu_id')}}"/>
+                        </div>
+                    </div>
+                </div>
         </div>
         <div>
             <div class="btn-block">

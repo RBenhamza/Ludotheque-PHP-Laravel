@@ -51,7 +51,7 @@
 <h2 class="display-4 text-center text-gray p-md-3">La liste des jeux</h2>
     <table border="1px">
         <tr>
-            <td>Nom</td><td>Description</td><td>Photo</td><td>Theme</td><td>Durée</td><td>Nombre de joueurs</td><td>Editeur</td><td></td>
+            <td>Nom</td><td>Description</td><td>Photo</td><td>Theme</td><td>Durée</td><td>Nombre de joueurs</td><td>Editeur</td><td>Mécanique</td><td>Voir plus</td>
         </tr>
         @foreach($jeux as $jeu)
             <tr>
@@ -62,6 +62,7 @@
                 <td>{{$jeu->duree}}</td>
                 <td>{{$jeu->nombre_joueurs}}</td>
                 <td>{{$jeu->editeur->nom}}</td>
+{{--                <td>{{$jeu->mecaniques->}}</td>--}}
                 <td><a href = {{route('jeux.show',$jeu->id)}}>Plus d'infos</a></td>
             </tr>
         @endforeach
