@@ -28,6 +28,7 @@
 </head>
 
 <body class="antialiased">
+<div class="container-fluid">
 <div class="relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0">
     @if (Route::has('login'))
         @auth
@@ -55,6 +56,7 @@
             @endforeach
         </table>
     </div>
+</div>
 </body>
 </html>
 @endsection
@@ -70,3 +72,6 @@
 
 </script>
 
+@section('footer')
+    @parent
+@endsection

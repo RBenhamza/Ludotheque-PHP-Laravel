@@ -29,7 +29,7 @@
 
     <div class="item">
         <label>Règles</label>
-        <input class="form-control" type="text" name="regles" id="regles" value="{{ old('regles') }}">
+        <textarea class="form-control"  name="regles" id="regles" value="{{ old('regles') }}"></textarea>
     </div>
 
     <div class="item">

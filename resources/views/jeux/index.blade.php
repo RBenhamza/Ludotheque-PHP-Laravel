@@ -22,7 +22,7 @@
     <br>
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-md-4 col-xl-4">
+                <div class="col-sm-12 col-md-3 col-xl-3">
                     <form action="{{route('jeux.index')}}" method="GET">
                         <label for="selectTri"><h4>Trier par : </h4></label>
                         <select class="form-control" id="selectTri" name="tri" onchange="this.form.submit()">
@@ -33,7 +33,7 @@
                         </select>
                     </form>
                 </div>
-                <div class="col-sm-12 col-md-4 col-xl-4">
+                <div class="col-sm-12 col-md-3 col-xl-3">
                     <form action="{{route('jeux.index')}}" method="GET">
                         <label for="triEditeur"><h4>Choix de l'éditeur</h4></label>
                         <select class="form-control" id="triEditeur" name="editeur_id" onchange="this.form.submit()">
@@ -44,7 +44,7 @@
                         </select>
                     </form>
                 </div>
-                <div class="col-sm-12 col-md-4 col-xl-4">
+                <div class="col-sm-12 col-md-3 col-xl-3">
                     <form action="{{route('jeux.index')}}" method="GET">
                         <label for="triTheme"><h4>Choix du thème</h4></label>
                         <select class="form-control" id="triTheme" name="themes_id" onchange="this.form.submit()">
@@ -55,7 +55,7 @@
                         </select>
                     </form>
                 </div>
-                <div class="col-sm-12 col-md-4 col-xl-4">
+                <div class="col-sm-12 col-md-3 col-xl-3">
                     <form action="{{route('jeux.index')}}" method="GET">
                         <label for="triMeca"><h4>Choix de la mécanique</h4></label>
                         <select class="form-control" id="triMeca" name="mecanique_id" onchange="this.form.submit()">
@@ -95,4 +95,7 @@
     </table>
 </body>
 </html>
+@endsection
+@section('footer')
+    @parent
 @endsection
