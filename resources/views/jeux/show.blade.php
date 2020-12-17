@@ -146,18 +146,19 @@
 </div>
 
 </br>
-    <div>
-        <form action="{{route('jeux.show',$jeux->id)}}" method="GET">
-            <label for="Tri commentaires"><h4>Trier les commentaires</h4></label>
-            <select id="tricomms" name="tricomms" onchange="this.form.submit()">
-                <option value="none">--Commentaires--</option>
-                <option value="date_com">Date</option>
-                <option value="note">Note</option>
-                <option value="user_id">Utilisateur</option>
-            </select>
-        </form>
-    </div>
-    @if(!empty($commentaires))
+    @if(!empty($commentaires->id))
+        <div>
+            <form action="{{route('jeux.show',$jeux->id)}}" method="GET">
+                <label for="Tri commentaires"><h4>Trier les commentaires</h4></label>
+                <select id="tricomms" name="tricomms" onchange="this.form.submit()">
+                    <option value="none">--Commentaires--</option>
+                    <option value="date_com">Date</option>
+                    <option value="note">Note</option>
+                    <option value="user_id">Utilisateur</option>
+                </select>
+            </form>
+        </div>
+
         <table border="1px">
             <tr>
                 <th>auteur</th><th>commentaire</th><th>note</th><th>date du commentaire</th>
@@ -168,7 +169,7 @@
         </table>
         <br>
     @else
-        <h3>aucun commentaire</h3>
+        <h3>Aucun commentaire</h3>
     @endif
     @if (Route::has('login'))
         @auth
