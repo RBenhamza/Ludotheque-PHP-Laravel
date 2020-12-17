@@ -59,6 +59,9 @@ Route::get('/achat/{uid}/{jid}/{px}/{lx}/{da}/delete',function($uid,$jid,$px,$lx
     return redirect('/user/'.$uid.'/profil')->with('user', $user);
 })->name("achat.delete");
 
+Route::get('/top',function() {
+    return view('jeux.top');
+})->name('top5');
 
 
 

@@ -58,10 +58,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route("jeux.index")}}"> Liste des jeux</a></li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Jeux</a></li>
                 @if (Route::has('login'))
                     @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href={{route("top5")}}>Top 5 Jeux</a></li>
                         <li class="nav-item">
                             <a class="nav-link" href={{ route('profil',['id'=>Auth::id()])}}>Profil</a></li>
                         <li class="nav-item">
