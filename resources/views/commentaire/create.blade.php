@@ -19,13 +19,25 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="item">
-                        <p>Note</p>
-                        <div class="name-item">
-                            <input type="text" name="note" id="note" value="{{ old('note') }}"/>
-                        </div>
+                    <div class="name-item">
+                    <select id="note" name="note">
+                        <option value="none">--Note--</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
                     </div>
                 </div>
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="item">--}}
+{{--                        <p>Note</p>--}}
+{{--                        <div class="name-item">--}}
+{{--                            <input type="text" name="note" id="note" value="{{ old('note') }}"/>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div class="col-md-6">
                     <div class="item">
                         <p>id du jeu (temporaire)</p>
