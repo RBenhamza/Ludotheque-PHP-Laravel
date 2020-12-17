@@ -18,7 +18,7 @@
             <div></div>
         @endif
 
-<br>   
+<br>
     <br>
     <form action="{{route('jeux.index')}}" method="GET">
         <label for="selectTri"><h4>Trier par : </h4></label>

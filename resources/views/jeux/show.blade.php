@@ -127,6 +127,13 @@
     @else
         <h3>aucun smartphone</h3>
     @endif
-    <a href="{{route("commentaire.create",['id'=>$jeux->id])}}">Ajouter un commentaire</a>
+    @if (Route::has('login'))
+        @auth
+            <a href="{{route("commentaire.create",['id'=>$jeux->id])}}">Ajouter un commentaire</a>
+        @endauth
+    @else
+        <div></div>
+    @endif
+
 
 @endsection
