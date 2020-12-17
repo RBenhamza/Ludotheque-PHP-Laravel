@@ -4,7 +4,17 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 @extends('accueil.master')
+@php
+    $moynote = DB::select(DB::raw('select avg(commentaires.note) as \'moyenne_note\' from commentaires where jeu_id=:act'),array('act'=>$jeux->id));
+    $hautenote = DB::select(DB::raw('select max(commentaires.note) as \'max_note\' from commentaires where jeu_id=:act'),array('act'=>$jeux->id));
+    $bassenote = DB::select(DB::raw('select min(commentaires.note) as \'min_note\' from commentaires where jeu_id=:act '),array('act'=>$jeux->id));
+    $nbcommjeu =DB::select(DB::raw('select count(commentaires.note) as \'nb_com\' from commentaires where jeu_id=:act '),array('act'=>$jeux->id));
+    $nbcommglbl = DB::select(DB::raw('select count(*) as \'nb_comglobal\' from commentaires'));
+    $classement =DB::select(DB::raw('SELECT RowNr as \'pos\' FROM (SELECT ROW_NUMBER() OVER (ORDER BY avg(note) desc) AS RowNr,avg(note),jeu_id FROM commentaires inner join jeux on commentaires.jeu_id = jeux.id where jeux.theme_id=(select theme_id from jeux where id = :act)group by jeu_id) sub WHERE sub.jeu_id=:act2'),array('act'=>$jeux->id,'act2'=>$jeux->id));
 
+
+
+@endphp
 @section('navbar')
     @parent
 @endsection
@@ -50,9 +60,26 @@
 </div>
 
 <!-- Button -->
+
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#popup">
     Afficher les règles
 </button>
+    <div style="width: 600px;  padding-top:10px; padding-bottom:10px;border: 3px solid #A0A0A0; text-align: center;background: #C0C0C0;">
+        <li>Note moyenne : {{$moynote[0]->moyenne_note}} </li>
+        <li>La note la plus basse :{{$bassenote[0]->min_note}} </li>
+        <li>La note la plus haute : {{$hautenote[0]->max_note}}</li>
+        <li>Nombre de commentaires sur ce jeu : {{$nbcommjeu[0]->nb_com}}</li>
+        <li>Nombre de commentaires sur le site : {{$nbcommglbl[0]->nb_comglobal}}</li>
+        <li>Position dans le classement (même thème) : {{$classement[0]->pos}} </li>
+    </div>
+
+    <div style="width: 600px;  padding-top:10px; padding-bottom:10px;border: 3px solid #A0A0A0; text-align: center;background: #C0C0C0;">
+        <li>Prix moyen : </li>
+        <li>Prix le plus haut : </li>
+        <li>Prix le plus bas : </li>
+        <li>Nombre d'utilisateurs possédant le jeu': </li>
+        <li>Nombre total d'utilisateur : </li>
+    </div>
 
 <!-- Pop-up -->
 <div id="popup" class="modal">
