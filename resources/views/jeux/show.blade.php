@@ -76,21 +76,50 @@
 </button>
     <br>
     <br>
-    <div style="width: 600px;  padding-top:10px; padding-bottom:10px;border: 3px solid #A0A0A0; text-align: center;background: #C0C0C0;">
-        <li>Note moyenne : {{$moynote[0]->moyenne_note}} </li>
-        <li>La note la plus basse :{{$bassenote[0]->min_note}} </li>
-        <li>La note la plus haute : {{$hautenote[0]->max_note}}</li>
+    <div style="width: 600px;  padding-top:10px; padding-bottom:10px;border: 3px solid #A0A0A0; text-align: center;background: white;">
+
+        @if ($moynote[0]->moyenne_note>3.5)
+            <li>Note moyenne :<span style="color:limegreen"> {{$moynote[0]->moyenne_note}}</span> </li>
+        @elseif ($moynote[0]->moyenne_note>2)
+            <li>Note moyenne :<span style="color:gold"> {{$moynote[0]->moyenne_note}} </li>
+        @else
+            <li>Note moyenne :<span style="color:red"> {{$moynote[0]->moyenne_note}} </li>
+        @endif
+        @if ($bassenote[0]->min_note>3.5)
+            <li>Note la plus basse :<span style="color:limegreen"> {{$bassenote[0]->min_note}}</span> </li>
+        @elseif ($bassenote[0]->min_note>2)
+            <li>Note la plus basse :<span style="color:gold"> {{$bassenote[0]->min_note}} </li>
+        @else
+            <li>Note la plus basse :<span style="color:red"> {{$bassenote[0]->min_note}} </li>
+        @endif
+        @if ($hautenote[0]->max_note>3.5)
+            <li>Note la plus haute :<span style="color:limegreen"> {{$hautenote[0]->max_note}}</span> </li>
+        @elseif ($hautenote[0]->max_note>2)
+            <li>Note la plus haute :<span style="color:gold"> {{$hautenote[0]->max_note}} </li>
+        @else
+            <li>Note la plus haute :<span style="color:red"> {{$hautenote[0]->max_note}} </li>
+        @endif
+
         <li>Nombre de commentaires sur ce jeu : {{$nbcommjeu[0]->nb_com}}</li>
         <li>Nombre de commentaires sur le site : {{$nbcommglbl[0]->nb_comglobal}}</li>
         @if ($nbcom[0]->nombre>0)
-            <li>Position dans le classement (même thème) : {{$classement[0]->pos}} </li>
-        @else
+            @if($classement[0]->pos<=3)
+                <li>Position dans le classement (même thème) : {{$classement[0]->pos}}
+                    <img src="{{asset("images/flamme.png")}}" height="200" width="200"/></li>
+            @elseif ($classement[0]->pos<=7)
+                <li>Position dans le classement (même thème) : {{$classement[0]->pos}}
+                    <img src="{{asset("images/flamme.png")}}" height="100" width="100"/></li>
+            @else
+                    <li>Position dans le classement (même thème) : {{$classement[0]->pos}}
+                    <img src="{{asset("images/flamme.png")}}" height="50" width="50"/></li>
+                @endif
+            @else
             <li>Position dans le classement (même thème) : Inconnu (pas de notes).</li>
         @endif
 
     </div>
 
-    <div style="width: 600px;  padding-top:10px; padding-bottom:10px;border: 3px solid #A0A0A0; text-align: center;background: #C0C0C0;">
+    <div style="width: 600px;  padding-top:10px; padding-bottom:10px;border: 3px solid #A0A0A0; text-align: center;background: antiquewhite;">
         <li>Prix moyen : {{$prix_moy[0]->moy_prix}} </li>
         <li>Prix le plus haut : {{$prixhaut[0]->max_prix}} </li>
         <li>Prix le plus bas : {{$prixbas[0]->min_prix}} </li>
@@ -139,7 +168,7 @@
         </table>
         <br>
     @else
-        <h3>aucun smartphone</h3>
+        <h3>aucun commentaire</h3>
     @endif
     @if (Route::has('login'))
         @auth
