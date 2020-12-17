@@ -71,9 +71,11 @@
 
 <!-- Button -->
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#popup">
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#popup">
     Afficher les règles
 </button>
+    <br>
+    <br>
     <div style="width: 600px;  padding-top:10px; padding-bottom:10px;border: 3px solid #A0A0A0; text-align: center;background: #C0C0C0;">
         <li>Note moyenne : {{$moynote[0]->moyenne_note}} </li>
         <li>La note la plus basse :{{$bassenote[0]->min_note}} </li>
@@ -135,12 +137,14 @@
                 <tr><td>{{$comm->user->name}}</td><td>{{$comm->commentaire}}</td><td>{{$comm->note}}</td><td>{{$comm->date_com}}</td></tr>
             @endforeach
         </table>
+        <br>
     @else
         <h3>aucun smartphone</h3>
     @endif
     @if (Route::has('login'))
         @auth
-            <a href="{{route("commentaire.create",['id'=>$jeux->id])}}">Ajouter un commentaire</a>
+            <a href="{{route("commentaire.create",['id'=>$jeux->id])}}"><button type="button" class="btn btn-success">Ajouter un commentaire</button>
+            </a>
         @endauth
     @else
         <div></div>

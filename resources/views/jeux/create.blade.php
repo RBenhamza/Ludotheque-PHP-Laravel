@@ -76,4 +76,5 @@
         <button type="submit" href="/">Valider</button>
     </div>
 </form>
+
 @endsection
