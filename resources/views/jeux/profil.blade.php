@@ -27,8 +27,8 @@
 
         {{--<a href="{{route("achat.create")}}" class="button">Ajouter l'achat d'un jeu</a>--}}
 
-        <p>Mes jeux :</p>     <button type="button" class="btn btn-success"><a href="{{route("achat.create")}}">Ajouter un jeu acheté</a>
-        </button>
+        <p>Mes jeux :</p>     <a style="text-decoration: none;" href="{{route("achat.create")}}"><button type="button" class="btn btn-success" >Ajouter un jeu acheté
+        </button></a>
         @foreach($results as $jeu)
             <p><a href="{{route("achat.delete",['uid'=>$jeu->user_id,'jid'=>$jeu->jeu_id,'px'=>$jeu->prix,'lx'=>$jeu->lieu,'da'=>$jeu->date_achat])}}"><button type="button" class="btn btn-danger" >X</button></a><strong>Nom :</strong>{{$jeu->nom}}<br> <strong>Date d'achat :</strong>{{$jeu->date_achat}} <strong>Prix :</strong>{{$jeu->prix}} <strong>Lieu de stockage :</strong>{{$jeu->lieu}}
         @endforeach

@@ -9,8 +9,8 @@
     <title>Liste des jeux</title>
 </head>
 <div>
-    <button type="button" class="btn btn-success"><a href="{{route("jeux.create")}}">Ajouter un jeu</a>
-    </button>
+    <a href="{{route("jeux.create")}}" style="text-decoration:none;"><button type="button" class="btn btn-success">Ajouter un jeu
+        </button></a>
 <br>
     <br>
     <form action="{{route('jeux.index')}}" method="GET">
