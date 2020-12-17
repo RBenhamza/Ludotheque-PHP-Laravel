@@ -52,7 +52,7 @@ class CommentaireController extends Controller
                 'jeu_id' => 'required',
             ]
         );
-
+        date_default_timezone_set('Europe/Paris');
 
 //        $jeu_id = Jeu::all()->pluck('id');
 //        $faker = Factory::create('fr_FR');
@@ -61,7 +61,7 @@ class CommentaireController extends Controller
         $commentaire->note = $request->note;
         $commentaire->user_id = Auth::id();
         $commentaire->jeu_id = $request->jeu_id;
-
+        $commentaire->date_com=$today = date("Y-m-d H:i:s");
         $commentaire->save();
 
         return redirect('/jeux');

@@ -41,7 +41,7 @@ class AchatController extends Controller
      */
     public function store(Request $request)
     {
-
+        date_default_timezone_set('Europe/Paris');
         // validation des données de la requête
         $this->validate(
             $request,
@@ -62,6 +62,7 @@ class AchatController extends Controller
         $achat->user_id=Auth::id();
         $achat->prix = $request->prix;
         $achat->lieu = $request->lieu;
+        $achat->date_achat=$today = date("Y-m-d H:i:s");
         $achat->save();
         // redirection vers la page qui affiche la liste des tâches
         $user=User::find(Auth::id());
