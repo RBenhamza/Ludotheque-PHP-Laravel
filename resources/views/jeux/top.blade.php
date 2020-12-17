@@ -8,17 +8,5 @@
     @parent
 @endsection
 @section('content')
-@php
-    $topjeux = DB::select(DB::raw('select avg(note) as \'moy\',jeu_id from commentaires group by(jeu_id) order by avg(note) desc limit 5;
-'));
-@endphp
-<b>Top 5 des Jeux :</b><br><br>
-    <ol>
-    @foreach($topjeux as $infojeu)
-        @php
-            $jeu=App\Models\Jeu::find($infojeu->jeu_id);
-        @endphp
-            <li><b>Titre :</b> {{$jeu->nom}} <b>Description :</b> {{$jeu->description}} <b>Moyenne :</b>{{$infojeu->moy}}</li><br>
-    @endforeach
-        </ol>
-@endsection
+
+

@@ -124,6 +124,7 @@
         <li>Prix le plus haut : {{$prixhaut[0]->max_prix}} </li>
         <li>Prix le plus bas : {{$prixbas[0]->min_prix}} </li>
         <li>Nombre d'utilisateurs possédant le jeu: {{$nbutils[0]->nbutils}}</li>
+
         <li>Nombre total d'utilisateur inscrit: {{$nbutot[0]->nb_total_util}}</li>
     </div>
 
