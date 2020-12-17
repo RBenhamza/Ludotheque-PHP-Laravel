@@ -69,7 +69,7 @@
             <tr>
                 <td>{{$jeu->nom}}</td>
                 <td> {{$jeu->description}}</td>
-                <td><img src="{{$jeu->url_media}}"></td>
+                <td><img src="{{$jeu->url_media}}" width="200" height="200"></td>
                 <td>{{$jeu->theme->nom}}</td>
                 <td>{{$jeu->duree}}</td>
                 <td>{{$jeu->nombre_joueurs}}</td>

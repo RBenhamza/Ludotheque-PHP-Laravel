@@ -54,5 +54,7 @@ class DatabaseSeeder extends Seeder {
             $jeu->save();
         }
         Commentaire::factory(100)->create();
+        $this->call(JeuxSeeder::class);
     }
+
 }

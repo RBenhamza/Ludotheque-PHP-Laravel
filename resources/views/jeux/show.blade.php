@@ -47,7 +47,7 @@
         @endforeach
     </div>
     <div class="row">
-        <p><strong>Illustration: : </strong>{{$jeux->url_media}}</p>
+        <p><strong>Illustration: : </strong><img src="{{$jeux->url_media}}" width="200" height="200"></p>
     </div>
     <div class="row">
         <p><strong>Regles : </strong>{{$jeux->regles}}</p>
