@@ -107,10 +107,14 @@ class CommentaireController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        if ($request->delete == 'valide') {
+            $commentaire = Commentaire::find($id);
+            $commentaire->delete();
+        }
+        return redirect()->route('jeux.index');
     }
 }

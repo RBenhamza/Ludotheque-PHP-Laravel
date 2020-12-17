@@ -38,7 +38,8 @@
         <br>
         <div>
             <div class="btn-block">
-                <a href="{{route("profil",['id'=>$authid])}}" class="btn-href">Retour</a>
+                <a href="{{route("profil",['id'=>$authid])}}" class="btn-href"><button type="button" class="btn btn-success">Retour</button>
+                </a>
                 <button type="submit" href="/" class="btn btn-success">Valider</button>
             </div>
         </div>
