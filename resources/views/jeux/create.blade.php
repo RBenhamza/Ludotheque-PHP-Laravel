@@ -57,6 +57,10 @@
         <p>Durée</p>
         <input type="text" name="duree" id="duree" value="{{ old('duree') }}">
     </div>
+    <div class="item">
+        <p>Editeur</p>
+        <input type="text" name="editeur" id="editeur" value="{{ old('editeur') }}">
+    </div>
 
     <div class="btn-block">
         <a href="{{route("jeux.index")}}" class="btn-href">Retour</a>

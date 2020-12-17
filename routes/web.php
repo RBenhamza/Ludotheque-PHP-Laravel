@@ -35,7 +35,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::resource('jeux', 'JeuController');
 
-
+Route::resource('achat', 'AchatController');
 Route::resource('ajoutJeux', 'AjoutController');
 
 //Route::get('jeux.tri', function () {
@@ -44,13 +44,11 @@ Route::resource('ajoutJeux', 'AjoutController');
 //})->name('jeux.tri');
 
 Route::get('/user/{id}/profil', function ($id) {
-    $user = User::find($id);
+    $user=User::find($id);
     return view('jeux.profil')->with('user', $user);
 })->name('profil');
 
 Route::get('/jeux/{id}/commenter','CommentaireController@create')->name('commentaire.create');
-
-
 
 
 

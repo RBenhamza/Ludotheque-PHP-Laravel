@@ -73,6 +73,7 @@ class JeuController extends Controller
                 'nombre_joueurs' => 'required',
                 'categorie' => 'required',
                 'duree' => 'required',
+                'editeur'=>'required',
             ]
         );
 
@@ -83,6 +84,9 @@ class JeuController extends Controller
         $theme_ids = Theme::all()->pluck('id');
         $editeur_ids = Editeur::all()->pluck('id');
         $faker = Factory::create('fr_FR');
+        $editeur=new Editeur;
+        $editeur->nom =$request->editeur;
+        $editeur->save();
         $jeu = new Jeu;
         $jeu->nom = $request->nom;
         $jeu->description = $request->description;
@@ -95,7 +99,7 @@ class JeuController extends Controller
         $jeu->duree = $request->duree;
         $jeu->user_id = Auth::id();
         $jeu->theme_id = $faker->randomElement($theme_ids);
-        $jeu->editeur_id = $faker->randomElement($editeur_ids);
+        $jeu->editeur_id = $editeur->id;
 
         // insertion de l'enregistrement dans la base de données
         $jeu->save();
