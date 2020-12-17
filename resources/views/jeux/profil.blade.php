@@ -18,7 +18,6 @@
     </head>
 
     <div>
-        <button type="button" onclick="testfun()" >X</button>
         <p><strong>Nom  : </strong>{{$user->name}}</p>
         <p><strong>email : </strong>{{$user->email}}</p>
 
