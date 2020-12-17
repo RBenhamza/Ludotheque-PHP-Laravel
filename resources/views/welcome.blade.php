@@ -48,7 +48,7 @@
     @if (Route::has('login'))
         @auth
             <div>
-                <button onclick="affichercacher()">Afficher 5 éléments random</button>
+                <button onclick="affichercacher()">Afficher 5 jeux random</button>
             </div>
         @endauth
     @else
